@@ -38,8 +38,8 @@ def math_quiz():
 
     for _ in range(total_questions):
         # Generate random numbers and operator for the math problem
-        num1 = generate_random_number(1, 10)
-        num2 = generate_random_number(1, 5)
+        num1 = _rndm_number(1, 10)
+        num2 = _rndm_number(1, 5)
         operator = choose_random_operator()
 
         # Create the math problem and get the correct answer
