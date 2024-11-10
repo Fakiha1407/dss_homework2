@@ -1,30 +1,39 @@
 import unittest
-from math_quiz import function_A, function_B, function_C
+from math_quiz import _rndm_number,_random_operator, _math_problem
 
+class TestMathQuizFunctions(unittest.TestCase):
 
-class TestMathGame(unittest.TestCase):
+    def test_rndm_number(self):
+        """Test if _rndm_number generates a number within the specified range."""
+        min_value = 1
+        max_value = 10
+        random_number = _rndm_number(min_value, max_value)
+        self.assertGreaterEqual(random_number, min_value)
+        self.assertLessEqual(random_number, max_value)
 
-    def test_function_A(self):
-        # Test if random numbers generated are within the specified range
-        min_val = 1
-        max_val = 10
-        for _ in range(1000):  # Test a large number of random values
-            rand_num = function_A(min_val, max_val)
-            self.assertTrue(min_val <= rand_num <= max_val)
+    def test_random_operator(self):
+        """Test if _random_operator returns a valid operator (+, -, *)."""
+        operator = _random_operator()
+        self.assertIn(operator, ['+', '-', '*'])
 
-    def test_function_B(self):
-        # TODO
-        pass
+    def test_math_problem(self):
+        """Test if _math_problem returns a correct problem string and answer."""
+        num1, num2 = 5, 3
+        # Test addition
+        problem, answer = _math_problem(num1, num2, '+')
+        self.assertEqual(problem, "5 + 3")
+        self.assertEqual(answer, 8)
 
-    def test_function_C(self):
-            test_cases = [
-                (5, 2, '+', '5 + 2', 7),
-                ''' TODO add more test cases here '''
-            ]
+        # Test subtraction
+        problem, answer = _math_problem(num1, num2, '-')
+        self.assertEqual(problem, "5 - 3")
+        self.assertEqual(answer, 2)
 
-            for num1, num2, operator, expected_problem, expected_answer in test_cases:
-                # TODO
-                pass
+        # Test multiplication
+        problem, answer = _math_problem(num1, num2, '*')
+        self.assertEqual(problem, "5 * 3")
+        self.assertEqual(answer, 15)
 
 if __name__ == "__main__":
     unittest.main()
+
