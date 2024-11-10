@@ -1,14 +1,14 @@
 import random
 
-def generate_random_number(min_value, max_value):
+def _rndm_number(min_value, max_value):
     """Generate a random integer between min_value and max_value."""
     return random.randint(min_value, max_value)
 
-def choose_random_operator():
+def _random_operator():
     ""Randomly select an arithmetic operator from +, -, and *.""
     return random.choice(['+', '-', '*'])
 
-def create_math_problem(num1, num2, operator):
+def _math_problem(num1, num2, operator):
     """Create a math problem string and calculate the correct answer.
 
     Parameters:
@@ -16,7 +16,7 @@ def create_math_problem(num1, num2, operator):
         num2 (int): The second number in the problem.
         operator (str): The operator to use in the problem.
 
-    Returns:
+    Return:
         tuple: A string representing the math problem and the correct answer.
     """
     problem_text = f"{num1} {operator} {num2}"
